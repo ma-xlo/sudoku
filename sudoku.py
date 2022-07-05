@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
+from curses.ascii import isalpha
 from os import system
 from random import randint
 
@@ -58,7 +59,7 @@ while 1:
         if(x == x_axis[i]):
             if(n < 1 or n > 9):
                 continue
-            elif(matrix_player[y-1][i] == ' '):
+            elif(matrix_player[y-1][i] == ' ' or isinstance(matrix_player[y-1][i], str)):
                 matrix_player[y-1][i] = y_numbers[n-1]
 
     """
