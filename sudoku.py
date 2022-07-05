@@ -7,16 +7,22 @@ from random import randint
 matrix_player = [ [ ' ' for i in range(9) ] for j in range(9) ]
 x_axis = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
 y_axis = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-#y_axis = ['➊', '➋', '➌', '➍', '➎', '➏', '➐', '➑', '➒']
+y_numbers = ['➊', '➋', '➌', '➍', '➎', '➏', '➐', '➑', '➒']
 
 
-# for i in range(9):
-#     seeder = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-#     for j in range(9):
-#         seeder_length = len(seeder)
-#         rand_posix = randint(0, seeder_length - 1)
-#         matrix_player[i][j] = seeder[rand_posix]
-#         seeder.pop(rand_posix)
+for i in range(9):
+    seeder = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    for j in range(9):
+        seeder_length = len(seeder)
+        rand_posix = randint(0, seeder_length - 1)
+        matrix_player[i][j] = seeder[rand_posix]
+        seeder.pop(rand_posix)
+
+for i in range(9):
+    rand_posix = randint(0, 9)
+    for j in range(rand_posix):
+        rand_posix = randint(0, 9)
+        matrix_player[i][rand_posix - 1] = ' '
 
 while 1:
     system('clear')
@@ -52,8 +58,8 @@ while 1:
         if(x == x_axis[i]):
             if(n < 1 or n > 9):
                 continue
-            else:
-                matrix_player[y-1][i] = n
+            elif(matrix_player[y-1][i] == ' '):
+                matrix_player[y-1][i] = y_numbers[n-1]
 
     """
     print(f'X axis: {cmd_input[0]}')
